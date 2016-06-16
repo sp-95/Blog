@@ -1,9 +1,14 @@
 body {
-  background-color: #fff;
+  background-color: #b2d9fb;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
+
+.orange-h1 {
+    color: orange;
+    text-align: center;
 }
 
 p, ol, ul, td {
@@ -54,6 +59,7 @@ div {
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+
 
   h2 {
     text-align: left;
