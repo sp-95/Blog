@@ -17,7 +17,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Welcome User</h1>
+<h1>Welcome <%= current_user.email %></h1>
 
   <% @posts.each do |post| %>
     <h2><%= link_to post.title, post %></h2>
