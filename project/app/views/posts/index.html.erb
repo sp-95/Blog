@@ -5,9 +5,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Clean Blog</h1>
+                        <h1>Startup Blog site</h1>
                         <hr class="small">
-                        <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+                        <span class="subheading">Together we can</span>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
     <h2><%= link_to post.title, post %></h2>
     <p><%= time_ago_in_words post.created_at %> ago</p>
     <p><%= truncate post.text %></p>
-    <span><%= link_to 'Show', post %></span>
+    <span><%= link_to 'Show More', post %></span>
     <span><%= link_to 'Edit', edit_post_path(post) %></span>
     <span><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
   <% end %>
