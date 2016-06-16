@@ -23,9 +23,6 @@
     <h2><%= link_to post.title, post %></h2>
     <p><%= time_ago_in_words post.created_at %> ago</p>
     <p><%= truncate post.text %></p>
-    <span><%= link_to 'Show More', post %></span>
-    <span><%= link_to 'Edit', edit_post_path(post) %></span>
-    <span><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
   <% end %>
 
 <p><%= link_to 'New Post', new_post_path %></p>
