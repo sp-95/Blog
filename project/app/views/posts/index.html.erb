@@ -18,25 +18,52 @@
 <p id="notice"><%= notice %></p>
 
 <%- if user_signed_in?%>
+<div class="center"> 
 <h1>Welcome <%= current_user.email %></h1>
 <% end %>
+</div>
+<div class="center">
+<p>
+  <%- if user_signed_in?%>
+  <h3>
+   <%= link_to 'New Post', new_post_path %></h3>
+  <%- else%> 
+  <h2><i class="fa fa-user"><%= link_to 'Log In', new_user_session_path %></i>
+ </h2>
+  </div>
+  </p>
+  <% end %> 
+  
+  <%- if user_signed_in?%><br>
+  <h3>
+  <i class="fa fa-sign-out">
+  <%= link_to 'Log out', destroy_user_session_path, method: 'delete' %>
+  </i></h3>
+  <% end %>
+ 
+  
+</p>
+</div>
+<div class="center">
+<h2>All Blogs</h2>
+</div>
+<div >
+  
+<div class="container" id="content" tabindex="-1">
+<div class="center">
 
 <% @posts.each do |post| %>
-<h2><%= link_to post.title, post %></h2>
+<h3><u><%= link_to post.title, post %></u></h3>
+<div class="well well-lg">
+
+ <p><%= truncate post.text %></p>
 <p><%= time_ago_in_words post.created_at %> ago</p>
-<p><%= truncate post.text %></p>
+ 
+</div>
+
 <% end %>
+</div>
+</div>
 
-<p>
-  <%- if user_signed_in?%>
-  <%= link_to 'New Post', new_post_path %>
-  <%- else%>
-  <%= link_to 'Log In', new_user_session_path %>
-  <% end %>
-</p>
 
-<p>
-  <%- if user_signed_in?%>
-  <%= link_to 'Log out', destroy_user_session_path, method: 'delete' %>
-  <% end %>
-</p>
+
