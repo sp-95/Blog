@@ -13,8 +13,39 @@
 </header>
 
 <%- if user_signed_in?%>
+<div class="center"> 
 <h1>Welcome <%= current_user.email %></h1>
 <% end %>
+</div>
+<div class="center">
+<p>
+  <%- if user_signed_in?%>
+  <h3>
+   <%= link_to 'New Post', new_post_path %></h3>
+  <%- else%> 
+  <h2><i class="fa fa-user"><%= link_to 'Log In', new_user_session_path %></i>
+ </h2>
+  </div>
+  </p>
+  <% end %> 
+  
+  <%- if user_signed_in?%><br>
+  <h3>
+  <i class="fa fa-sign-out">
+  <%= link_to 'Log out', destroy_user_session_path, method: 'delete' %>
+  </i></h3>
+  <% end %>
+ 
+  
+</p>
+</div>
+<div class="center">
+<h2>All Blogs</h2>
+</div>
+<div >
+  
+<div class="container" id="content" tabindex="-1">
+<div class="center">
 
 <div class="container">
   <div class="row">
@@ -35,16 +66,4 @@
   </div>
 </div>
 
-<p>
-  <%- if user_signed_in?%>
-  <%= link_to 'New Post', new_post_path %>
-  <%- else%>
-  <%= link_to 'Log In', new_user_session_path %>
-  <% end %>
-</p>
 
-<p>
-  <%- if user_signed_in?%>
-  <%= link_to 'Log out', destroy_user_session_path, method: 'delete' %>
-  <% end %>
-</p>
