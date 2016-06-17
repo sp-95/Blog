@@ -6,14 +6,9 @@ body {
   line-height: 18px;
 }
 
-.orange-h1 {
-    color: orange;
-    text-align: center;
-}
-
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 18px;
 }
 
@@ -40,6 +35,10 @@ div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
+}
+
+.float-right {
+  float:right;
 }
 
 #notice {
