@@ -1,6 +1,4 @@
-<!-- Page Header -->
-<!-- Set your background image for this header on the line below. -->
-<header class="intro-header" >
+<header class="intro-header header1">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -13,9 +11,6 @@
     </div>
   </div>
 </header>
-
-
-<p id="notice"><%= notice %></p>
 
 <%- if user_signed_in?%>
 <div class="center"> 
@@ -52,18 +47,23 @@
 <div class="container" id="content" tabindex="-1">
 <div class="center">
 
-<% @posts.each do |post| %>
-<h3><u><%= link_to post.title, post %></u></h3>
-<div class="well well-lg">
-
- <p><%= truncate post.text %></p>
-<p><%= time_ago_in_words post.created_at %> ago</p>
- 
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <% @posts.each do |post| %>
+      <div class="post-preview">
+        <h2 class="post-title">
+          <%= link_to post.title, post %>
+        </h2>
+        <h4 class="post-subtitle">
+        <%= truncate post.text, length:100 %>
+        </h4>
+        <p class="post-meta">Posted by <%= post.posted_by %> <%= time_ago_in_words post.created_at %> ago</p>
+      </div>
+      <hr>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-<% end %>
-</div>
-</div>
-
 
 
