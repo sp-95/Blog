@@ -2,7 +2,7 @@
 	<br>
 	<u>
 		<%- if controller_name != 'sessions' %>
-		<%= link_to "Log in", new_session_path(resource_name) %><br>
+		<h3 class="fa fa-user float-right"><%= link_to "Log in", new_session_path(resource_name) %></h3><br>
 		<% end -%>
 
 		<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
