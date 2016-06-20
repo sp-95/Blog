@@ -1,39 +1,32 @@
 <%= form_for(@post) do |f| %>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-        <% if @post.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-            <ul>
-              <% @post.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <form name="sentMessage" id="contactForm" novalidate>
-          <div class="row control-group">
-            <div class="form-group col-xs-12 floating-label-form-group controls">
-              <label><%= f.label :title %></label>
-              <%= f.text_field :title, class: "form-control", placeholder: "Name"%>
-            </div>
-          </div>
-          <div class="row control-group">
-            <div class="form-group col-xs-12 floating-label-form-group controls">
-              <label><%= f.label :text %></label>
-              <%= f.text_area :text, rows: "5", class: "form-control", placeholder: "Message"%>
-            </div>
-          </div>
-          <div id="success"></div>
-          <div class="row">
-            <div class="form-group col-xs-12">
-              <%= f.submit "Post", class: "btn btn-warning" %>
-            </div>
-          </div>
-        </form>
-      </div>
+<% if @post.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  <ul>
+    <% @post.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<form name="sentMessage" id="contactForm" novalidate>
+  <div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+      <label><%= f.label :title %></label>
+      <%= f.text_field :title, class: "form-control", placeholder: "Title"%>
     </div>
   </div>
+  <div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+      <label><%= f.label :text %></label>
+      <%= f.text_area :text, rows: "5", class: "form-control", placeholder: "Blog Post"%>
+    </div>
+  </div>
+  <div id="success"></div>
+  <div class="row">
+    <div class="form-group col-xs-12">
+      <%= f.submit "Post", class: "btn btn-warning" %>
+    </div>
+  </div>
+</form>
 <% end %>
