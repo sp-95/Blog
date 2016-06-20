@@ -1,28 +1,29 @@
-.bg {
-    background-image: url("cat.gif");
-    width: 400px;
-    height: 350px;
-}
-
- .centerImage {
-     text-align: center;
-}
-
 .start{
-    margin: 100px;
-    
+	margin: 100px;
+
 }
 
 .center{
-  text-align: center;
+	text-align: center;
 }
 
 .wrapper {
-    text-align: center;
+	text-align: center;
 }
 
 .button {
-    position: absolute;
-    top: 50%;
+	position: absolute;
+	top: 50%;
 }
 
+.FirstHeading {
+	margin-bottom: 50px;
+	padding: 100px 0 50px;
+	color: white;
+	text-align: center;
+}
+
+.FirstHeading h1 {
+	margin-top: 0;
+	font-size: 80px;
+}
