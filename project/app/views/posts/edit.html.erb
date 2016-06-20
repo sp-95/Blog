@@ -1,6 +1,25 @@
-<h1>Editing Post</h1>
+<header class="intro-header header2">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<div class="post-heading">
+					<h1>Editing Post</h1>
+					<span class="meta">Posted by <%= @post.posted_by %> <%= time_ago_in_words @post.created_at %> ago</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
 
-<%= render 'form' %>
+<article>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<%= render 'form' %>
+			</div>
+		</div>
+	</div>
+</article><h1></h1>
 
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 	<button class="btn btn-info"><%= link_to "Back", posts_path %></button>
