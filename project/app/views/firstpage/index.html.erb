@@ -1,12 +1,14 @@
 <%= stylesheet_link_tag 'a' %>
-<h1 style="text-align: center;"><br><br><u><i>Welcome</i></u></h1>
-<div class="centerImage">
-	<%= image_tag("cat.gif") %>
-</div>
-<div>
-	<!-- <div class="btn btn-primary " > -->
-	<div style="text-align:center;">
-		<br>
+<header class="FirstHeading">
+	<h1>Welcome</h1>
+</header>
+
+<div class="center">
+	<div style="opacity: 0.5">
+		<%= image_tag("cat.gif") %>
+	</div>
+	<br>
+	<div>
 		<button class="btn btn-success"><%= link_to "Let's Start", posts_path %></button>
 	</div>
 </div>
