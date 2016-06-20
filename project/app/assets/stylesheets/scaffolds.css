@@ -1,5 +1,9 @@
 body {
-  background-color: #b2d9fb;
+  /*background-color: #b2d9fb;*/
+  background-image: url('d1.jpg'); 
+  background-position: 30% 20%; 
+   background-size: 1500px 1200px;
+    background-repeat: no-repeat;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
