@@ -1,25 +1,15 @@
-<div style="margin: auto">
-	<br>
-	<u>
-		<%- if controller_name != 'sessions' %>
-		<%= link_to "Log in", new_session_path(resource_name) %><br>
-		<% end -%>
+<br>
+<%- if controller_name != 'sessions' %>
+<h4 class="fa fa-sign-in"><%= link_to "Log in", new_session_path(resource_name) %></h4><br>
+<% end -%>
 
-		<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-		<i class="fa fa-street-view"><h4><u>
-			<%= link_to "Sign up", new_registration_path(resource_name) %></h4></u>
-			<% end -%>
-		</i>
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+<h4 class="fa fa-user-plus"><%= link_to "Sign up", new_registration_path(resource_name) %></h4><br>
+<% end -%>
 
-		<span style="margin: auto">
-			<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-			<h4>
-				<i class="fa fa-question-circle"></i>
-				<%= link_to "Forgot your password?", new_password_path(resource_name) %><br></h4>
-				<% end -%>
-		</span>
-	</u>
-</div>
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+<h4 class="fa fa-question-circle"><%= link_to "Forgot your password?", new_password_path(resource_name) %></h4><br>
+<% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
 <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
