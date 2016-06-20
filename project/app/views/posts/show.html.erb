@@ -15,67 +15,66 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-				<p>
-					<%= @post.text %>
-					<hr>
-					<h4 class="fa fa-comments">Comments</h4>
-					<hr>
-					<% @post.comments.each do |comment| %>
-            <div class="panel panel-primary">
-              <div class="panel-heading"><%= comment.commented_by %></div>
-              <div class="panel-body"><%= comment.text %></div>
-              <div class="panel-footer">
-                <div class="float-right"><%= time_ago_in_words comment.created_at %> ago</div>
-                <% if user_signed_in? && (comment.commented_by == current_user.email) %>
-                <%= link_to "Delete comment", [@post, comment], :method => :delete, data: {:confirm => "Are you sure?"} %>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </p>
+				<p><%= @post.text %></p>
+        <% if @post.comments.count > 0 %>
+        <hr>
+        <h4 class="fa fa-comments">Comments</h4>
+        <% @post.comments.each do |comment| %>
+        <div class="panel panel-primary">
+          <div class="panel-heading"><%= comment.commented_by %></div>
+          <div class="panel-body"><%= comment.text %></div>
+          <div class="panel-footer">
+            <div class="float-right"><%= time_ago_in_words comment.created_at %> ago</div>
+            <% if user_signed_in? && (comment.commented_by == current_user.email) %>
+            <%= link_to "Delete comment", [@post, comment], :method => :delete, data: {:confirm => "Are you sure?"} %>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
       </div>
     </div>
   </div>
 </article>
 
 <% if user_signed_in?%>
-  <%= form_for [@post, @post.comments.build] do |f| %>
-    <div class="container lightbg">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <h3>Leave a comment</h3>
-          <form name="sentMessage" id="contactForm" novalidate>
-            <div class="row control-group">
-              <div class="form-group col-xs-12 floating-label-form-group controls">
-                <label>Message</label>
-                <%= f.text_area :text, rows: "5", class: "form-control", placeholder: "Comment" %>
-              </div>
-            </div>
-            <br>
-            <div id="success"></div>
-            <div class="row">
-              <div class="form-group col-xs-12">
-                <%= f.submit "Post comment", class: "btn btn-default" %>
-              </div>
-            </div>
-          </form>
+<%= form_for [@post, @post.comments.build] do |f| %>
+<div class="container lightbg">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <h3>Leave a comment</h3>
+      <form name="sentMessage" id="contactForm" novalidate>
+        <div class="row control-group">
+          <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label>Message</label>
+            <%= f.text_area :text, rows: "5", class: "form-control", placeholder: "Comment" %>
+          </div>
         </div>
-      </div>
+        <br>
+        <div id="success"></div>
+        <div class="row">
+          <div class="form-group col-xs-12">
+            <%= f.submit "Post comment", class: "btn btn-default" %>
+          </div>
+        </div>
+      </form>
     </div>
-  <% end %>
+  </div>
+</div>
+<% end %>
 <% end %>
 
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
   <button class="btn btn-info"><%= link_to "Back", posts_path %></button>
   <% if user_signed_in?%>
-    <button class="btn btn-warning"><%= link_to "Edit", edit_post_path(@post) %></button>
-    <button class="btn btn-danger"><%= link_to "Delete", @post, :method => :delete, data: {:confirm => "Are you sure?"} %></button>
+  <button class="btn btn-warning"><%= link_to "Edit", edit_post_path(@post) %></button>
+  <button class="btn btn-danger"><%= link_to "Delete", @post, :method => :delete, data: {:confirm => "Are you sure?"} %></button>
   <% else%>
-    <button class="btn btn-success float-right"><%= link_to 'Log In', new_user_session_path %></button>
+  <button class="btn btn-success float-right"><%= link_to 'Log In', new_user_session_path %></button>
   <% end %>
   <button class="btn btn-success float-right">
     <% if user_signed_in? %>
-      <%= link_to 'Log out', destroy_user_session_path, method: 'delete' %>
+    <%= link_to 'Log out', destroy_user_session_path, method: 'delete' %>
     <% end %>
   </button>
 </div>
