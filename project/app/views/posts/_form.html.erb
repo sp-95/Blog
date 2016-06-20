@@ -1,30 +1,40 @@
-
 <%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <% if @post.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+            <ul>
+              <% @post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <form name="sentMessage" id="contactForm" novalidate>
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label><%= f.label :title %></label>
+              <%= f.text_field :title, class: "form-control", placeholder: "Name"%>
+            </div>
+          </div>
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label><%= f.label :text %></label>
+              <%= f.text_area :text, rows: "5", class: "form-control", placeholder: "Message"%>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <div class="row">
+            <div class="form-group col-xs-12">
+              <button class="btn btn-warning"><%= f.submit %></button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-  <% end %>
-
-<div style="margin-left:30%">
-  <div class="field">
-  
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-    
-  </div>
-  <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
   </div>
 <% end %>

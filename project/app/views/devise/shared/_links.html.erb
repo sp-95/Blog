@@ -1,4 +1,4 @@
-<div style="margin-left:05%">
+<div style="margin: auto">
 	<br>
 	<u>
 		<%- if controller_name != 'sessions' %>
@@ -11,7 +11,7 @@
 			<% end -%>
 		</i>
 
-		<span style="margin-left:2em">
+		<span style="margin: auto">
 			<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
 			<i class="fa fa-question-circle">
 				<%= link_to "Forgot your password?", new_password_path(resource_name) %><br>

@@ -12,40 +12,21 @@
   </div>
 </header>
 
-<%- if user_signed_in?%>
-<div class="center"> 
-<h1>Welcome <%= current_user.email %></h1>
-<% end %>
-</div>
-<div class="center">
-<p>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"> 
   <%- if user_signed_in?%>
-  <h3>
-   <%= link_to 'New Post', new_post_path %></h3>
-  <%- else%> 
-  <h2><i class="fa fa-user"><%= link_to 'Log In', new_user_session_path %></i>
- </h2>
-  </div>
-  </p>
-  <% end %> 
-  
-  <%- if user_signed_in?%><br>
-  <h3>
-  <i class="fa fa-sign-out">
-  <%= link_to 'Log out', destroy_user_session_path, method: 'delete' %>
-  </i></h3>
+  <h1>Welcome <%= current_user.email %></h1>
   <% end %>
- 
-  
-</p>
+
+  <%- if user_signed_in?%>
+  <h3 class="fa fa-file-text"><%= link_to 'New Post', new_post_path %></h3>
+  <%- else%> 
+  <h2 class="fa fa-user float-right"><%= link_to 'Log In', new_user_session_path %></h2>
+  <% end %>
+
+  <%- if user_signed_in?%>
+  <h3 class="fa fa-sign-out float-right"><%= link_to 'Log out', destroy_user_session_path, method: 'delete' %></h3>
+  <% end %>
 </div>
-<div class="center">
-<h2>All Blogs</h2>
-</div>
-<div >
-  
-<div class="container" id="content" tabindex="-1">
-<div class="center">
 
 <div class="container">
   <div class="row">
@@ -56,7 +37,7 @@
           <%= link_to post.title, post %>
         </h2>
         <h4 class="post-subtitle">
-        <%= truncate post.text, length:100 %>
+          <%= truncate post.text, length:100 %>
         </h4>
         <p class="post-meta">Posted by <%= post.posted_by %> <%= time_ago_in_words post.created_at %> ago</p>
       </div>
