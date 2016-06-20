@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def create
   	@post = Post.find(params[:post_id])
   	@comment = @post.comments.build(params.require(:comment).permit(:post_id, :text))
+    @comment.commented_by = current_user.email
   	@comment.save
 
   	redirect_to @post

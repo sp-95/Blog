@@ -1,19 +1,18 @@
 body {
-  background-color: #b2d9fb;
+  /*background-color: #b2d9fb;*/
+  background-image: url('d1.jpg'); 
+  background-position: 30% 20%; 
+   background-size: 1500px 1200px;
+    background-repeat: no-repeat;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
 
-.orange-h1 {
-    color: orange;
-    text-align: center;
-}
-
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 18px;
 }
 
@@ -40,6 +39,10 @@ div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
+}
+
+.float-right {
+  float:right;
 }
 
 #notice {
