@@ -72,9 +72,9 @@
   <% else%>
   <button class="btn btn-success float-right"><%= link_to 'Log In', new_user_session_path %></button>
   <% end %>
+  <% if user_signed_in? %>
   <button class="btn btn-success float-right">
-    <% if user_signed_in? %>
     <%= link_to 'Log out', destroy_user_session_path, method: 'delete' %>
-    <% end %>
   </button>
+  <% end %>
 </div>
