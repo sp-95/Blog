@@ -40,6 +40,7 @@
           <%= truncate post.text, length:100 %>
         </h4>
         <p class="post-meta">Posted by <%= post.posted_by %> <%= time_ago_in_words post.created_at %> ago</p>
+        <p style="color: green"><%= post.upvote %></p> <p style="color: red"><%= post.downvote %></p> 
       </div>
       <hr>
       <% end %>
