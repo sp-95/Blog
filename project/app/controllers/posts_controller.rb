@@ -27,8 +27,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.posted_by = current_user.email
-    @post.upvote = 0
-    @post.downvote = 0
 
     respond_to do |format|
       if @post.save
