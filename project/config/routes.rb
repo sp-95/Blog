@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments
+    member do
+      put "like" => "posts#upvote"
+      put "like" => "posts#downvote"
+    end
   end
   devise_for :users
 

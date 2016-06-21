@@ -16,9 +16,26 @@
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 				<p><%= @post.text %></p>
+
+            <% if user_signed_in? %>
+        <%= link_to like_post_path(@post), class: "like", method: :put do %>
+        <button type="button" class="btn btn-success btn-sm" aria-label="Left Align">
+          <span class="fa fa-chevron-up center" aria-hidden="true"></span>
+          <span class="badge"><%= @post.get_upvotes.size %></span>
+        </button>
+        <% end %>
+
+        <%= link_to like_post_path(@post), class: "like", method: :put do %>
+        <button type="button" class="btn btn-danger btn-sm" aria-label="Left Align">
+          <span class="fa fa-chevron-down center" aria-hidden="true"></span>
+          <span class="badge"><%= @post.get_downvotes.size %></span>
+        </button>
+        <% end %>
+        <% end %>
+
         <% if @post.comments.count > 0 %>
         <hr>
-        <h4 class="fa fa-comments">Comments</h4>
+        <h4 class="fa fa-comments"><%= @post.comments.count %> Comments</h4>
         <% @post.comments.each do |comment| %>
         <div class="panel panel-primary">
           <div class="panel-heading"><%= comment.commented_by %></div>
