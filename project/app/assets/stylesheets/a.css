@@ -27,3 +27,24 @@
 	margin-top: 0;
 	font-size: 80px;
 }
+
+.asText {
+    background: none;
+    border: none;
+}
+
+.Like {
+    color: green;
+}
+
+.Dislike {
+    color: red;
+}
+
+#UpCount {
+  background-color: green;
+}
+
+#DownCount {
+  background-color: red;
+}
